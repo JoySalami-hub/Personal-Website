@@ -1,0 +1,83 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.about__text p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 1.02rem;
+}
+
+.about__highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem 1rem;
+  margin-top: 0.75rem;
+}
+
+.about__highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--muted-strong);
+}
+
+.about__bullet {
+  color: var(--accent);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.about__portrait {
+  display: flex;
+  justify-content: center;
+}
+
+.about__portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  border-radius: var(--radius);
+  border: 2px solid var(--accent);
+  padding: 0.4rem;
+  transition: transform 0.25s ease;
+}
+
+.about__portrait-frame:hover {
+  transform: translate(-4px, -4px);
+}
+
+.about__portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 2px);
+  aspect-ratio: 1 / 1;
+  filter: grayscale(15%) contrast(1.02);
+  transition: filter 0.25s ease;
+}
+
+.about__portrait-frame:hover img {
+  filter: none;
+}
+
+@media (max-width: 768px) {
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .about__highlights {
+    grid-template-columns: 1fr;
+  }
+  .about__portrait {
+    order: -1;
+  }
+  .about__portrait-frame {
+    max-width: 240px;
+  }
+}

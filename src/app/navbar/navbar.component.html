@@ -1,0 +1,98 @@
+<header class="nav" [class.nav--scrolled]="scrolled()">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#hero" (click)="closeMenu()" aria-label="Dami Salami — home">
+      <span class="nav__brand-mark">DS</span>
+      <span class="nav__brand-name">Dami Salami</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <ul>
+        @for (link of links; track link.href; let i = $index) {
+          <li>
+            <a [href]="link.href">
+              <span class="nav__index">0{{ i + 1 }}.</span>{{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+      <a class="btn btn-outline nav__resume" [href]="resumeUrl" (click)="openResume($event)">Curriculum Vitae</a>
+      <a class="btn btn-outline nav__certificates" [href]="certificatesUrl" (click)="openCertificates($event)">Certificates</a>
+    </nav>
+
+    <button
+      type="button"
+      class="nav__toggle"
+      [class.nav__toggle--open]="menuOpen()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-menu"
+      aria-label="Toggle navigation menu"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="nav__mobile" [class.nav__mobile--open]="menuOpen()">
+    <ul>
+      @for (link of links; track link.href; let i = $index) {
+        <li>
+          <a [href]="link.href" (click)="closeMenu()">
+            <span class="nav__index">0{{ i + 1 }}.</span>{{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+    <div class="nav__mobile-actions">
+      <a class="btn btn-outline" [href]="resumeUrl" (click)="openResume($event)">Resume</a>
+      <a class="btn btn-outline" [href]="certificatesUrl" (click)="openCertificates($event)">Certificates</a>
+    </div>
+  </div>
+</header>
+
+@if (resumeOpen()) {
+  <div
+    class="resume-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Resume preview"
+    (click)="closeResume()"
+  >
+    <div class="resume-modal__panel" (click)="$event.stopPropagation()">
+      <div class="resume-modal__bar">
+        <span class="resume-modal__title">Curriculum Vitae</span>
+        <div class="resume-modal__actions">
+          <a class="btn btn-outline resume-modal__btn" [href]="resumeUrl" target="_blank" rel="noopener">
+            Open in new tab
+          </a>
+          <button
+            type="button"
+            class="resume-modal__close"
+            aria-label="Close resume preview"
+            (click)="closeResume()"
+          >
+            &times;
+          </button>
+        </div>
+      </div>
+      <iframe class="resume-modal__frame" [src]="resumeSafeUrl" title="Resume PDF"></iframe>
+    </div>
+  </div>
+}
+
+
+@if (certificatesOpen()) {
+  <div class="resume-modal" role="dialog" aria-modal="true" aria-label="Certificates preview" (click)="closeCertificates()">
+    <div class="resume-modal__panel" (click)="$event.stopPropagation()">
+      <div class="resume-modal__bar">
+        <span class="resume-modal__title">Certificates</span>
+        <div class="resume-modal__actions">
+          <a class="btn btn-outline resume-modal__btn" [href]="certificatesUrl" target="_blank" rel="noopener">Open in new tab</a>
+          <button type="button" class="resume-modal__close" aria-label="Close certificates preview" (click)="closeCertificates()">&times;</button>
+        </div>
+      </div>
+      <iframe class="resume-modal__frame" [src]="certificatesSafeUrl" title="Certificates PDF"></iframe>
+    </div>
+  </div>
+}

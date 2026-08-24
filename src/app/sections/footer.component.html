@@ -1,0 +1,20 @@
+<footer class="footer">
+  <div class="footer__mascots" aria-hidden="true">
+    <span class="mascot mascot--a"><app-pixel-art [sprite]="junimos[0]" [pixel]="5" /></span>
+    <span class="mascot mascot--b"><app-pixel-art [sprite]="junimos[3]" [pixel]="5" /></span>
+    <span class="mascot mascot--c"><app-pixel-art [sprite]="junimos[1]" [pixel]="5" /></span>
+  </div>
+  <ul class="footer__socials">
+    @for (social of socials; track social.label) {
+      <li>
+        <a [href]="social.url" target="_blank" rel="noopener noreferrer">
+          {{ social.label }}
+        </a>
+      </li>
+    }
+  </ul>
+  <p class="footer__note">
+    Designed &amp; built by Dami Salami &middot; {{ year }}
+  </p>
+  <p class="footer__stack">Built with Angular {{ '20' }} &middot; standalone components</p>
+</footer>

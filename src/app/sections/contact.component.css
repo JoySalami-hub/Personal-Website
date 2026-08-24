@@ -1,0 +1,150 @@
+.contact {
+  text-align: center;
+}
+
+.contact__label {
+  justify-content: center;
+}
+
+.contact__label::before {
+  display: none;
+}
+
+.contact__title {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.contact__lead {
+  max-width: 580px;
+  margin: 0 auto 3rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Form */
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.field label {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted-strong);
+}
+
+.field input,
+.field textarea {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--foreground);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.8rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--muted);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.field--error {
+  border-color: #f0707b !important;
+}
+
+.field__error {
+  color: #f0707b;
+  font-size: 0.8rem;
+}
+
+.contact__submit {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+}
+
+.contact__success {
+  color: var(--accent);
+  font-size: 0.95rem;
+  background-color: var(--accent-soft);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+}
+
+.contact__error {
+  color: #f0707b;
+  font-size: 0.95rem;
+  border: 1px solid #f0707b;
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+}
+
+.contact__submit:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.contact__aside h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+  color: var(--foreground);
+}
+
+.contact__channels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact__channels li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.contact__channel-label {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.contact__channels a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}

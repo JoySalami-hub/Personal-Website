@@ -1,0 +1,49 @@
+<section id="about" class="section about" appReveal>
+  <p class="section-label">01. About me</p>
+  <h2 class="section-title">A little about my journey</h2>
+
+  <div class="about__grid">
+    <div class="about__text">
+      <p>
+       Hello, I’m Dami Salami, a Cloud Support Engineer working at Amazon. I’ve 
+       always enjoyed computers,and building things, largely 
+       because I love problem-solving and figuring out how things work. Recently,
+       I’ve gotten more into tinkering and experimenting with technology outside
+       of work. I’m currently in the process of building my own server, and eventually
+       I’d love to create a mini cyberdeck. My interest in technology has taken
+       me from studying Computer Science to working with the Longford County
+       Council, then Unum, and eventually to my current role at Amazon.
+      </p>
+      <p>
+        Outside of technology, I’m a big fan of video games, art, and reading,
+        with reading probably being my number one hobby. I love getting completely
+        stuck into a good game, especially Zelda, which is my favourite game series. 
+        I also enjoy things like Sudoku and Murdoku, which probably says a lot about 
+        how much I enjoy puzzles and problem-solving. Overall, I’m someone who loves 
+        learning, experimenting, and getting stuck into new things, whether that’s 
+        building something with a computer, playing a game, creating art, or getting 
+        lost in a really good book.
+      </p>
+      <p>Here are a few things I bring to the table:</p>
+
+      <ul class="about__highlights">
+        @for (item of highlights; track item) {
+          <li>
+            <span class="about__bullet" aria-hidden="true">▹</span>{{ item }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="about__portrait">
+      <div class="about__portrait-frame">
+        <img
+          src="Me.jpeg"
+          alt="Portrait of Dami Salami, Cloud Support Engineer I at Amazon Web Services"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </div>
+</section>

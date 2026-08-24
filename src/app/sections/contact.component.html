@@ -1,0 +1,98 @@
+<section id="contact" class="section contact" appReveal>
+  <p class="section-label contact__label">04. Contact</p>
+  <h2 class="contact__title">Let's build something together</h2>
+  <p class="contact__lead">
+    I'm currently open to new opportunities and interesting projects.
+    Whether you have a question or just want to say hi, my inbox is always open.
+  </p>
+
+  <div class="contact__grid">
+    <form class="contact__form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          [(ngModel)]="model.name"
+          #name="ngModel"
+          required
+          minlength="2"
+          autocomplete="name"
+          [class.field--error]="name.invalid && name.touched"
+        />
+        @if (name.invalid && name.touched) {
+          <p class="field__error">Please enter your name.</p>
+        }
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          [(ngModel)]="model.email"
+          #email="ngModel"
+          required
+          email
+          autocomplete="email"
+          [class.field--error]="email.invalid && email.touched"
+        />
+        @if (email.invalid && email.touched) {
+          <p class="field__error">Please enter a valid email address.</p>
+        }
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          [(ngModel)]="model.message"
+          #message="ngModel"
+          required
+          minlength="10"
+          [class.field--error]="message.invalid && message.touched"
+        ></textarea>
+        @if (message.invalid && message.touched) {
+          <p class="field__error">Please write a message (10+ characters).</p>
+        }
+      </div>
+
+      <button type="submit" class="btn btn-primary contact__submit" [disabled]="sending()">
+        {{ sending() ? 'Sending…' : 'Send message' }}
+      </button>
+
+      @if (submitted()) {
+        <p class="contact__success" role="status">
+          Thanks! Your message has been sent. I&apos;ll get back to you soon.
+        </p>
+      }
+      @if (sendError()) {
+        <p class="contact__error" role="alert">
+          Sorry, your message could not be sent. Please email me directly instead.
+        </p>
+      }
+    </form>
+
+    <aside class="contact__aside">
+      <h3>Other ways to reach me</h3>
+      <ul class="contact__channels">
+        <li>
+          <span class="contact__channel-label">Email</span>
+          <a href="mailto:dammisalami@gmail.com">dammisalami@gmail.com</a>
+        </li>
+        <li>
+          <span class="contact__channel-label">Location</span>
+          <span>Dublin, Ireland &middot; Remote</span>
+        </li>
+        <li>
+          <span class="contact__channel-label">Availability</span>
+          <span>Open to freelance &amp; full-time</span>
+        </li>
+      </ul>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<section id="skills" class="section skills" appReveal>
+  <p class="section-label">02. Skills</p>
+  <h2 class="section-title">Technologies I work with</h2>
+
+  <div class="skills__grid">
+    @for (group of groups; track group.category) {
+      <article class="skills__card">
+        <h3 class="skills__category">{{ group.category }}</h3>
+        <ul class="skills__list">
+          @for (item of group.items; track item) {
+            <li class="skills__chip">{{ item }}</li>
+          }
+        </ul>
+      </article>
+    }
+  </div>
+</section>

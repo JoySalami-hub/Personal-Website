@@ -1,0 +1,54 @@
+<section id="work" class="section projects" appReveal>
+  <p class="section-label">03. Work</p>
+  <h2 class="section-title">Some things Ive built</h2>
+
+  <div class="projects__list">
+    @for (project of projects; track project.title; let i = $index) {
+      <article class="project" [class.project--reverse]="i % 2 === 1">
+        <div class="project__media">
+          <a
+            class="project__media-link"
+            [href]="project.liveUrl"
+            [attr.aria-label]="'View live demo of ' + project.title"
+          >
+            <img
+              class="project__gif"
+              [src]="project.gif"
+              [alt]="'Animated preview of the ' + project.title + ' project'"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="project__media-overlay" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="project__body">
+          <p class="project__eyebrow">Featured Project</p>
+          <h3 class="project__title">
+            <a [href]="project.liveUrl">{{ project.title }}</a>
+          </h3>
+          <div class="project__desc">
+            <p>{{ project.description }}</p>
+          </div>
+          <ul class="project__tags">
+            @for (tag of project.tags; track tag) {
+              <li>{{ tag }}</li>
+            }
+          </ul>
+          <div class="project__links">
+            <a
+              [href]="project.codeUrl"
+              [attr.aria-label]="'Source code for ' + project.title"
+              >Code</a
+            >
+            <a
+              [href]="project.liveUrl"
+              [attr.aria-label]="'Video demo for ' + project.title"
+              >Video Demo</a
+            >
+          </div>
+        </div>
+      </article>
+    }
+  </div>
+</section>
